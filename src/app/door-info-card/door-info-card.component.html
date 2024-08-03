@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<body class="d-flex flex-column min-vh-100">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <div class="card door-info-card shadow-lg mx-auto" style="max-width: 400px;">
+    <div class="card-body text-center">
+      <h2 class="card-title text-primary">وضعیت درب شماره {{ doorNumber }}</h2>
+      <div class="status-container">
+        <div class="status-icon">
+          <i class="fas" [ngClass]="{'fa-door-open': doorStatus === 'باز', 'fa-door-closed': doorStatus === 'بسته'}" style="font-size: 100px;"></i>
+        </div>
+        <div class="status-text">
+          <h4 class="font-weight-bold">{{ doorStatus }}</h4>
+          <p>آخرین زمان: <span id="last-action">{{ lastAction }}</span></p>
+        </div>
+      </div>
+
+      <div class="status-bar" [ngClass]="{'bg-success': doorStatus === 'باز', 'bg-danger': doorStatus === 'بسته'}"></div>
+
+      <button class="btn btn-success m-2 animate-button" (click)="toggleDoor('open')">
+        <i class="fas fa-lock-open"></i> باز کردن
+      </button>
+      <button class="btn btn-danger m-2 animate-button" (click)="toggleDoor('close')">
+        <i class="fas fa-lock"></i> بستن
+      </button>
+
+      <h5 class="mt-4">تاریخچه وضعیت درب:</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">وضعیت</th>
+            <th scope="col">زمان</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of history" [ngClass]="{'table-success': record.status === 'باز', 'table-danger': record.status === 'بسته'}">
+            <td>{{ record.status }}</td>
+            <td>{{ record.time }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</body>

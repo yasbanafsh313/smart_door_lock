@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* اطمینان از اینکه ارتفاع کامل استفاده می‌شود */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #34495e;
+  padding: 5px 0; /* پدینگ کم */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px; /* پدینگ کم */
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 14px; /* اندازه متن کوچک‌تر */
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.navbar a.active {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.navbar i {
+  display: block;
+  font-size: 20px; /* اندازه آیکون کوچک‌تر */
+}
+
+.navbar span {
+  font-size: 10px; /* اندازه متن کوچک‌تر */
+}
+
+.content {
+  flex: 1;
+  text-align: center;
+  padding: 0; /* حذف پدینگ اضافی */
+  margin-top: 0; /* اطمینان از عدم وجود فاصله */
+}
+
+/* ریسپانسیو */
+@media (max-width: 600px) {
+  .navbar {
+      flex-direction: column; /* تغییر به ستون در صفحه‌های کوچک‌تر */
+  }
+
+  .navbar a {
+      padding: 10px; /* افزایش پدینگ در صفحات کوچک‌تر */
+      font-size: 12px; /* تغییر اندازه متن */
+  }
+
+  .navbar i {
+      font-size: 18px; /* تغییر اندازه آیکون */
+  }
+
+  .navbar span {
+      font-size: 8px; /* تغییر اندازه متن */
+  }
+}

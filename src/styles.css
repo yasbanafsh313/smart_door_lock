@@ -1,0 +1,15 @@
+body,
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: vazir;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("./assets/Fonts/Vazir-Medium.eot") format("eot");
+  src: url("./assets/Fonts/Vazir-Medium.woff") format("woff"),
+    url("./assets/Fonts/Vazir-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
